@@ -16,6 +16,7 @@ class computer_handler implements Runnable
             System.out.println("in the thread");
             PrintWriter out = new PrintWriter(client.getOutputStream(), true);
             String recommendedRoute = "Turn Right After 100 m, then turn left and Stop after 50 m.";
+            out.println(recommendedRoute);
             //BufferedReader fromDriver = new BufferedReader(new InputStreamReader(client.getInputStream()));
            // DataInputStream fromDriver = new DataInputStream(client.getInputStream());
             BufferedReader fromComputer = new BufferedReader(new InputStreamReader(client.getInputStream()));

@@ -41,7 +41,7 @@ public class computerMulti {
                 PrintWriter outTOServer = new PrintWriter(toServer.getOutputStream(), true); // sending info to the server
                 BufferedReader input = new BufferedReader(new InputStreamReader(toServer.getInputStream()));
                 String serverResponse = input.readLine();
-                outTOServer.println(serverResponse);
+                outTOServer.println(sensor);
                 //outTOServer.println(serverResponse);
                 System.out.println("The server sent these recommendations: " + serverResponse);
                 // close connection
