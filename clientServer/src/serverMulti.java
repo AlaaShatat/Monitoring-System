@@ -1,5 +1,4 @@
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -13,23 +12,31 @@ class computer_handler implements Runnable
     @Override
     public void run()
     {
-            try {
-                PrintWriter out = new PrintWriter(client.getOutputStream(), true);
-                String recommendedRoute = "Turn Right After 100 m, then turn left and Stop after 50 m.";
-                System.out.println("These Recommendations Will Be Sent To The Computers: " + recommendedRoute);
-                out.println(recommendedRoute);
-                System.out.println("[SERVER] sent recommendations to computer, closing");
+        try {
+            System.out.println("in the thread");
+            PrintWriter out = new PrintWriter(client.getOutputStream(), true);
+            String recommendedRoute = "Turn Right After 100 m, then turn left and Stop after 50 m.";
+            //BufferedReader fromDriver = new BufferedReader(new InputStreamReader(client.getInputStream()));
+           // DataInputStream fromDriver = new DataInputStream(client.getInputStream());
+            BufferedReader fromComputer = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            String info = fromComputer.readLine();
+            //String location = fromDriver.readUTF();
+            System.out.println(info);
+            System.out.println("The Driver Is Going From " + info);
+            System.out.println("These Recommendations Will Be Sent To The Computers: " + recommendedRoute);
+            out.println(recommendedRoute);
+            System.out.println("[SERVER] sent recommendations to computer, closing");
 
-                // close the connection
+            // close the connection
 
-                client.close();
+            client.close();
 
 
         }
-            catch (Exception e)
-            {
-                System.out.println("Exception ERROR");
-            }
+        catch (Exception e)
+        {
+            System.out.println("Exception ERROR");
+        }
 
 
 
