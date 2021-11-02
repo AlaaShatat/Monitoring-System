@@ -31,7 +31,7 @@ public class Computers {
 
            PrintWriter out = new PrintWriter(clientDriver.getOutputStream(),true);
            PrintWriter outTOServer = new PrintWriter(toServer.getOutputStream(),true); // sending info to the server
-          // outTOServer.println(sensor +" "+ location);
+           outTOServer.println(sensor +" "+ location);
            BufferedReader input = new BufferedReader(new InputStreamReader(toServer.getInputStream()));
            String serverResponse = input.readLine();
            out.println(serverResponse);

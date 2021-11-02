@@ -18,8 +18,8 @@ public class ServerClass {
         System.out.println("[SERVER] connected to Computer client ");
 
       // System.out.println("[SERVER] Your Best Route Is:  " + getRandomRecommendation());
-        //BufferedReader fromComputer = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        //String info = fromComputer.readLine();
+        BufferedReader fromComputer = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        String info = fromComputer.readLine();
         PrintWriter out = new PrintWriter(client.getOutputStream(),true);
         String recommendedRoute = getRandomRecommendation();
         System.out.println("These Recommendations Will Be Sent To The Computers: " + recommendedRoute );
